@@ -10,3 +10,13 @@
   <dt>Result</dt>
   <dd><%= @result %></dd>
 </dl>
+
+<ul>
+  <% @log.each do |calculation| %>
+    <li>
+      <%= calculation.fetch(:first) %> + <%= calculation.fetch(:second) %> = <%= calculation.fetch(:sum) %>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/muggle_add">Do another addition</a>
