@@ -21,6 +21,16 @@ class CalculationsController < ApplicationController
 
     @result = @first_number.to_f + @second_number.to_f
 
+    log = cookies.fetch(:addition_results)
+
+    if log == nil
+      log = Array.new
+    end
+    
+    log.unshift(@result)
+
+    cookies.store(:addition_results, log[0..4])
+
     render({ :template => "calculation_templates/add_results.html.erb" })
   end
 
